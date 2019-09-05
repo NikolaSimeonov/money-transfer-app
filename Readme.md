@@ -44,3 +44,74 @@ To run the app use following command:
 
 
 The application will start on the default port 8080
+
+
+# API
+
+BankResource
+ Create
+ 
+    POST http://localhost:8080/api/bank/create/
+    
+    Example Body:
+    
+     {
+      "id" : "bankId01"
+     }
+  Get 
+  
+    GET http://localhost:8080/api/bank/{BankId}
+    
+    Example Request:
+    
+    http://localhost:8080/api/bank/bankId01
+    
+AccountResource
+  Create
+  
+    POST http://localhost:8080/api/account/create/
+    
+    Example Body:
+    
+    {
+        "id": "bankId01accountId1",
+        "bankId": "bankId01",
+        "transactionLogList": {
+            "transactionLogId1": {
+                "transaction": {
+                    "id": "transactionId1",
+                    "amount": 2000,
+                    "timestamp": "2015-08-04T10:11:30",
+                    "originatorAccountId": "bankId02accountId1",
+                    "receiverAccountId": "bankId01accountId1",
+                    "transactionStatus": "EXECUTED",
+                    "currency": "EUR"
+                },
+                "balanceAfterTransaction": 2000,
+                "reservedBalanceAfterTransaction": 0,
+                "currency" : "EUR"
+            }
+        }
+    }
+    
+  Get
+   
+    GET http://localhost:8080/api/account/{AccountId}
+    
+    Example Request:
+       
+      http://localhost:8080/api/account/bankId01accountId1
+
+TransferResource
+    Transfer money between accounts
+        
+        POST http://localhost:8080/api/transfer/initiate
+        
+        Example Body:
+        
+        {
+            "transferAmount": 800,
+            "originatorAccountId":"bankId02accountId1",
+            "receiverAccountId":"bankId01accountId1",
+            "currency": "EUR"
+        }
