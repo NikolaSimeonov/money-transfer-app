@@ -1,9 +1,10 @@
 package com.nikola.simeonov;
 
+import static org.eclipse.jetty.servlet.ServletContextHandler.NO_SESSIONS;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
-import com.nikola.simeonov.persistence.AccountRepository;
 import com.nikola.simeonov.bindings.PaymentTransferAppBinder;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -13,18 +14,13 @@ import org.glassfish.jersey.servlet.ServletContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.eclipse.jetty.servlet.ServletContextHandler.NO_SESSIONS;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
 
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
-    public static void main( String[] args ) throws Exception {
+    public static void main( String[] args ) {
         Server server = initServer();
 
         try {

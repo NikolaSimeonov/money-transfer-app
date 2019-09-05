@@ -24,14 +24,7 @@ public class PaymentTransferAppBinder extends AbstractBinder {
         bind(AccountService.class).to(AccountService.class).in(Singleton.class);
         bind(InterBankOperationsClient.class).to(InterBankOperationsClient.class).in(Singleton.class);
         bind(BankService.class).to(ReceiverBankService.class).in(Singleton.class);
-
         bind(Bank.class).to(Bank.class);
-//        Map<String,Bank> banks = new ConcurrentHashMap<>();
-//        banks.put("1",new Bank());
-//        java.lang.reflect.Type type = new TypeLiteral<Map<String,Bank>>() {}.getType();
-//        GenericEntity genericEntity = new GenericEntity(banks, type);
-//        bind(GenericType.forInstance(genericEntity)).to(GenericType.forInstance(genericEntity));
-
 
     }
 }

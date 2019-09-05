@@ -3,12 +3,10 @@ package com.nikola.simeonov.model;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 

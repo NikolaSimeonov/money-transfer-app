@@ -1,8 +1,6 @@
 package com.nikola.simeonov.client;
 
-import java.util.List;
 import java.util.concurrent.Future;
-
 import javax.inject.Inject;
 import javax.inject.Provider;
 

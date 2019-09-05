@@ -24,7 +24,7 @@ public class BankRepository {
         return this.banks.get(id);
     }
 
-    public void addAccountToBank(Account account){
+    void addAccountToBank(Account account){
         Bank bank = banks.get(account.getBankId());
         if(bank != null){
             if(bank.getAccounts().get(account.getId()) == null){

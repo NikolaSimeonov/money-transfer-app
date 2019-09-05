@@ -9,7 +9,6 @@ import javax.inject.Inject;
 
 import com.nikola.simeonov.client.InterBankOperationsClient;
 import com.nikola.simeonov.exception.BankNotFoundException;
-import com.nikola.simeonov.model.Account;
 import com.nikola.simeonov.model.Bank;
 import com.nikola.simeonov.model.BankTransferResponse;
 import com.nikola.simeonov.model.Transaction;
@@ -65,12 +64,6 @@ public class BankService implements SenderBankService, ReceiverBankService {
             accountService.finalizeSendTransaction(bankTransferResponse.getTransaction());
         }
         return new TransferResponse(bankTransferResponse.toString());
-    }
-
-    private Account getOriginatorAccount(Transaction transactionAsReceived) {
-        return getBankByAccountId(transactionAsReceived.getOriginatorAccountId())
-          .getAccounts()
-          .get(transactionAsReceived.getOriginatorAccountId());
     }
 
     private Bank getBankByAccountId(String accountId) {

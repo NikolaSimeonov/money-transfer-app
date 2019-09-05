@@ -7,14 +7,11 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.nikola.simeonov.model.Account;
-import com.nikola.simeonov.model.Bank;
 import com.nikola.simeonov.persistence.AccountRepository;
-import com.nikola.simeonov.persistence.BankRepository;
 
 @Path("/account")
 public class AccountResource {
@@ -45,7 +42,7 @@ public class AccountResource {
         Account account = accountRepository.getAccountById(accountId);
         if(account != null) {
             return Response.status(Response.Status.OK).entity(account).build();
-        } else  return Response.status(Response.Status.NOT_FOUND).entity(account).build();
+        } else  return Response.status(Response.Status.NOT_FOUND).build();
     }
 
 }
